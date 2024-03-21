@@ -1,4 +1,6 @@
-import org.junit.jupiter.api.BeforeAll;
+package tests;
+
+import database.Mock;
 import org.junit.jupiter.api.BeforeEach;
 
 public class ServiceInteractor_Test {
