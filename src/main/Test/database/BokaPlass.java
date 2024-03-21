@@ -15,7 +15,7 @@ public class BokaPlass {
         if (fjoldiSaeta <= fjoldiFolks) {
             fjoldiSaeta -= fjoldiFolks;
             return true;
-        } else {
+        } else  {
             return false;
         }
 
