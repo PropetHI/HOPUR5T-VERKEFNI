@@ -1,6 +1,18 @@
 package adrian.roszkowski.hopur5tverkefni;
 
+/**
+ * Class for handling user login
+ * @version 1.0
+ * @author Bogi Fjalar Sigurðsson - bfs11 - Hopur5T
+ */
 public class Login {
+
+    /**
+     * Method for logging in an user
+     * @param email
+     * @param password
+     * @return
+     */
     public static boolean loginUser(String email, String password){
         boolean loginOk = false;
         if (UserDB.isAuthenticationValid(email, password)) {
