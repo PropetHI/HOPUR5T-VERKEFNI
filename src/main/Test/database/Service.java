@@ -3,21 +3,21 @@ package database;
 import java.util.Date;
 
 public class Service extends BokaPlass {
-    private double verd;
-    private String umService;
-    private String stadsetning;
+    private int price;
+    private String aboutService;
+    private String location;
     private Date date;
 
-    public Service(double verd, String umService, String stadsetning, int setSaetisFjoldi) {
-        this.verd = verd;
-        this.stadsetning = stadsetning;
-        this.umService = umService;
+    public Service(int price, String aboutService, String location, int setSaetisFjoldi) {
+        this.price = price;
+        this.location = location;
+        this.aboutService = aboutService;
         setSaetisFjoldi(setSaetisFjoldi);
     }
 
-    public boolean book(int fjoldiFolks) {
-        boolean boka = bokaSaeti(fjoldiFolks);
-        if(boka) {
+    public boolean book(int customerCount) {
+        boolean booking = bookSeat(customerCount);
+        if(booking) {
             return true;
         }
         else {
@@ -25,15 +25,15 @@ public class Service extends BokaPlass {
         }
     }
 
-    public double getVerd() {
-        return verd;
+    public double getPrice() {
+        return price;
     }
 
-    public String getUmService() {
-        return umService;
+    public String getAboutService() {
+        return aboutService;
     }
 
-    public String getStadsetning() {
-        return stadsetning;
+    public String getLocation() {
+        return location;
     }
 }
