@@ -11,7 +11,6 @@ public class ServiceInteractor_Test {
 
     Mock mockObject;
 
-
     @BeforeEach
     void initializeTests() {
         mockObject = new Mock();
@@ -23,7 +22,7 @@ public class ServiceInteractor_Test {
         Service service = new Service(10000, "lorem ipsum dolor sit amet", "Location x", 0);
         mock.addService(service);
 
-        boolean result = service.bookSeat(2);
+        boolean result = service.book(2);
 
         assertEquals(false, result);
     }
@@ -34,7 +33,7 @@ public class ServiceInteractor_Test {
         Service service = new Service(10000, "lorem ipsum dolor sit amet", "Location y", 5);
         mock.addService(service);
 
-        boolean result = service.bookSeat(2);
+        boolean result = service.book(2);
 
         assertEquals(true, result);
     }
@@ -48,7 +47,7 @@ public class ServiceInteractor_Test {
 
         service.setSeatCount(-1); // set seatCount to a negative number
 
-        boolean result = service.bookSeat(2);
+        boolean result = service.book(2);
 
         assertEquals(false, result);
     }
