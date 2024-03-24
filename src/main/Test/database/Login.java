@@ -1,4 +1,4 @@
-package adrian.roszkowski.hopur5tverkefni;
+package database;
 
 /**
  * Class for handling user login
