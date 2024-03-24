@@ -26,7 +26,7 @@ public class BookService {
      * @return boolean that confirms reservation or denies it
      */
     public boolean bookSeat(int numberOfPeople) {
-        if (availableSpace <= numberOfPeople) {
+        if (availableSpace >= numberOfPeople) {
             availableSpace -= numberOfPeople;
             return true;
         } else  {
