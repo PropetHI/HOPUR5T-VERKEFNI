@@ -45,7 +45,7 @@ public class ServiceInteractor_Test {
         mockObject.addService(service);
 
 
-        service.setSeatCount(-1); // set seatCount to a negative number
+        service.setAvailableSpace(-1); // set seatCount to a negative number
 
         boolean result = service.book(2);
 
