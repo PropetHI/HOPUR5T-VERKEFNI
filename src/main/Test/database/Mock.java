@@ -17,7 +17,7 @@ public class Mock {
         return service;
     }
 
-    public void getSpecificService(int i) {
-        service.get(i);
+    public Service getSpecificService(int i) {
+        return service.get(i);
     }
 }
