@@ -22,7 +22,7 @@ public class ServiceInteractor_Test {
         Service service = new Service(10000, "lorem ipsum dolor sit amet", "Location x", 0);
         mockObject.addService(service);
 
-        boolean result = service.book(2);
+        boolean result = service.bookSeat(2);
 
         assertEquals(false, result);
     }
@@ -33,7 +33,7 @@ public class ServiceInteractor_Test {
         Service service = new Service(10000, "lorem ipsum dolor sit amet", "Location y", 5);
         mockObject.addService(service);
 
-        boolean result = service.book(2);
+        boolean result = service.bookSeat(2);
 
         assertEquals(true, result);
     }
@@ -47,7 +47,7 @@ public class ServiceInteractor_Test {
 
         service.setAvailableSpace(-1); // set seatCount to a negative number
 
-        boolean result = service.book(2);
+        boolean result = service.bookSeat(2);
 
         assertEquals(false, result);
     }

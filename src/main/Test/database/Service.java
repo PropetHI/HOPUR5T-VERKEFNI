@@ -11,28 +11,13 @@ public class Service extends BookService {
      * @param price integer that tells you the cost of the service per person
      * @param aboutService String of text that has information about the service
      * @param location String of text that gives you the service location
-     * @param availableSpace integer that sets the availbe space (one space per person) within the service
+     * @param availableSpace integer that sets the available space (one space per person) within the service
      */
     public Service(int price, String aboutService, String location, int availableSpace) {
         this.price = price;
         this.location = location;
         this.aboutService = aboutService;
         setAvailableSpace(availableSpace);
-    }
-
-    /**
-     * Method for booking the service
-     * @param customerCount integer number of people that want to book space
-     * @return boolean that tells the user if the booking was confirmed or denied
-     */
-    public boolean book(int customerCount) {
-        boolean booking = bookSeat(customerCount);
-        if(booking) {
-            return true;
-        }
-        else {
-            return false;
-        }
     }
 
     /**
@@ -58,6 +43,4 @@ public class Service extends BookService {
     public String getLocation() {
         return location;
     }
-
-    public void setSeatCount(int newSeatcount){}
 }

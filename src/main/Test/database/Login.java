@@ -8,7 +8,7 @@ package database;
 public class Login {
 
     /**
-     * Method for logging in an user
+     * Method for logging in a user
      * @param email
      * @param password
      * @return
