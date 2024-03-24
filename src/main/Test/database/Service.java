@@ -1,6 +1,6 @@
 package database;
 
-public class Service extends BokaPlass {
+public class Service extends BookService {
 
     private int price;
     private String aboutService;
@@ -58,4 +58,6 @@ public class Service extends BokaPlass {
     public String getLocation() {
         return location;
     }
+
+    public void setSeatCount(int newSeatcount){}
 }

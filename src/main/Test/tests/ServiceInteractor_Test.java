@@ -20,7 +20,7 @@ public class ServiceInteractor_Test {
     @Test
     public void testBookingFailed() {
         Service service = new Service(10000, "lorem ipsum dolor sit amet", "Location x", 0);
-        mock.addService(service);
+        mockObject.addService(service);
 
         boolean result = service.book(2);
 
@@ -31,7 +31,7 @@ public class ServiceInteractor_Test {
     @Test
     public void testBookingSuccess() {
         Service service = new Service(10000, "lorem ipsum dolor sit amet", "Location y", 5);
-        mock.addService(service);
+        mockObject.addService(service);
 
         boolean result = service.book(2);
 
@@ -42,7 +42,7 @@ public class ServiceInteractor_Test {
     @Test
     public void testBookingError() {
         Service service = new Service(10000, "lorem ipsum dolor sit amet", "Location z", 3);
-        mock.addService(service);
+        mockObject.addService(service);
 
 
         service.setSeatCount(-1); // set seatCount to a negative number
