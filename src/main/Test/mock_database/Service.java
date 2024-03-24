@@ -1,4 +1,4 @@
-package database;
+package mock_database;
 
 public class Service extends BookService {
 

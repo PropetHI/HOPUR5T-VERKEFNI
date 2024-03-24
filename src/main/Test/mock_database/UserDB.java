@@ -1,4 +1,4 @@
-package database;
+package mock_database;
 
 /**
  * MockObject class to represent User DB

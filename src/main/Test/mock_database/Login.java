@@ -1,4 +1,4 @@
-package database;
+package mock_database;
 
 /**
  * Class for handling user login

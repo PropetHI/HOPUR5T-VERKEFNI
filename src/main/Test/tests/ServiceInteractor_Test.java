@@ -1,7 +1,7 @@
 package tests;
 
-import database.Mock;
-import database.Service;
+import mock_database.Mock;
+import mock_database.Service;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -16,7 +16,9 @@ public class ServiceInteractor_Test {
         mockObject = new Mock();
     }
 
-    // Booking test: Failed version
+    /**
+     * Booking test: Failed version
+     */
     @Test
     public void testBookingFailed() {
         Service service = new Service(10000, "lorem ipsum dolor sit amet", "Location x", 0);
@@ -27,7 +29,10 @@ public class ServiceInteractor_Test {
         assertEquals(false, result);
     }
 
-    // Booking test: Successful version
+    /**
+     * Booking test: Successful version
+     */
+
     @Test
     public void testBookingSuccess() {
         Service service = new Service(10000, "lorem ipsum dolor sit amet", "Location y", 5);
@@ -38,12 +43,13 @@ public class ServiceInteractor_Test {
         assertEquals(true, result);
     }
 
-    // Booking test: Error version
+    /**
+     * Booking test: Error version
+     */
+
     @Test
     public void testBookingError() {
         Service service = new Service(10000, "lorem ipsum dolor sit amet", "Location z", 3);
-        mockObject.addService(service);
-
 
         service.setAvailableSpace(-1); // set seatCount to a negative number
 

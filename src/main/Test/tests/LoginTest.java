@@ -2,7 +2,7 @@ package tests;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import database.*;
+import mock_database.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
