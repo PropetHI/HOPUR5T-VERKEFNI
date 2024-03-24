@@ -17,5 +17,6 @@ public class bfsTempTestCode {
         //System.out.println(UserDB.user1.getName());
         //Login.loginUser("jon@netfang.is","12345");
     }
+
+     */
 }
-*/
