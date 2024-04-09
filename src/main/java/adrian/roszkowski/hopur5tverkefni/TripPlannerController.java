@@ -3,7 +3,7 @@ package adrian.roszkowski.hopur5tverkefni;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class HelloController {
+public class TripPlannerController {
     @FXML
     private Label welcomeText;
 
