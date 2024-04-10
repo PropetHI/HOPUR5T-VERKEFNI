@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" stylesheets="@mainui-styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adrian.roszkowski.hopur5tverkefni.TripPlannerController">
    <children>
       <AnchorPane prefHeight="71.0" prefWidth="600.0">
@@ -19,7 +18,8 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Button layoutX="1202.0" layoutY="17.0" mnemonicParsing="false" text="Login" />
+            <Button fx:id="fxLoginButton" layoutX="1202.0" layoutY="17.0" mnemonicParsing="false" onAction="#onLoginButtonClick" text="Login" />
+            <Label fx:id="currentUserLabel" alignment="CENTER_RIGHT" layoutX="899.0" layoutY="22.0" prefHeight="17.0" prefWidth="289.0" text="USER LOGIN STATUS" textAlignment="RIGHT" />
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="647.0" prefWidth="1280.0">
