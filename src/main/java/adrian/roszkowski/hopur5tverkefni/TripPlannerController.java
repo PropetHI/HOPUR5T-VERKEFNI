@@ -7,6 +7,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -16,6 +18,7 @@ import java.util.Optional;
 public class TripPlannerController implements Initializable {
 
     String noUserLoginText = "Not logged in";
+    String currentSelectedListItem;
 
     @FXML
     private Label fxStatusText;
@@ -30,6 +33,9 @@ public class TripPlannerController implements Initializable {
 
     @FXML
     private Label currentUserLabel;
+
+    @FXML
+    private ListView<String> fxServiceListView;
 
     @FXML
     protected void onLoginButtonClick() {
@@ -51,7 +57,7 @@ public class TripPlannerController implements Initializable {
     public void initialize(URL arg0, ResourceBundle arg1) {
 
         currentUserLabel.setText(noUserLoginText);
-             fxStatusText.setText("something");
+        fxStatusText.setText("");
 
         AppState.userLoggedInBoolProperty.addListener(new ChangeListener<Boolean>() {
             public void changed(ObservableValue<? extends Boolean> mv, Boolean isOld, Boolean isNew) {
@@ -59,6 +65,23 @@ public class TripPlannerController implements Initializable {
                 updateUI();
             }
         });
+
+
+        //String[] serviceListData = {"9990;Reykjavik;Guided Bus Ride around the City of Reykjavik;10","500;Akureyri;Guided Bus Ride around the Town of Reykjavik;5","temp","test"};
+        //fxServiceListView.getItems().addAll(serviceListData);
+        fxServiceListView.getItems().addAll(ServiceInteractor.getServiceList());
+
+        fxServiceListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2){
+
+
+                currentSelectedListItem = fxServiceListView.getSelectionModel().getSelectedItem();
+                fxStatusText.setText(currentSelectedListItem);
+
+            }
+        });
+
     }
 
     public void updateUI(){

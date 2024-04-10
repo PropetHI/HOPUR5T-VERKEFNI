@@ -12,5 +12,8 @@ public class AppState {
 
     public static void init(){
         UserDB.init();
+        ServiceDB.init();
+
+        ServiceInteractor.getServiceList();
     }
 }
