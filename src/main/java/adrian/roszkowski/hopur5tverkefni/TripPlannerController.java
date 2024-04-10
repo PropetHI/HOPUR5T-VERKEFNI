@@ -18,14 +18,14 @@ public class TripPlannerController implements Initializable {
     String noUserLoginText = "Not logged in";
 
     @FXML
-    private Label welcomeText;
+    private Label fxStatusText;
 
     @FXML
     private Button fxLoginButton;
 
     @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
+    protected void onMyCartButtonClick() {
+        fxStatusText.setText("Opening Cart");
     }
 
     @FXML
@@ -51,7 +51,7 @@ public class TripPlannerController implements Initializable {
     public void initialize(URL arg0, ResourceBundle arg1) {
 
         currentUserLabel.setText(noUserLoginText);
-             welcomeText.setText("something");
+             fxStatusText.setText("something");
 
         AppState.userLoggedInBoolProperty.addListener(new ChangeListener<Boolean>() {
             public void changed(ObservableValue<? extends Boolean> mv, Boolean isOld, Boolean isNew) {
