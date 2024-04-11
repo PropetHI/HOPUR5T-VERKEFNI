@@ -29,6 +29,7 @@ public class TripPlannerController implements Initializable {
     @FXML
     protected void onMyCartButtonClick() {
         fxStatusText.setText("Opening Cart");
+        ViewSwitcher.switchTo(View.CART, true);
     }
 
     @FXML

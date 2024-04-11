@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="535.0" prefWidth="601.0" stylesheets="@cart-styles.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <ListView prefHeight="383.0" prefWidth="383.0" BorderPane.alignment="CENTER" />
+   </center>
+   <top>
+      <HBox alignment="CENTER" prefHeight="68.0" prefWidth="601.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="My cart">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+   </top>
+   <left>
+      <Region prefHeight="421.0" prefWidth="66.0" BorderPane.alignment="CENTER" />
+   </left>
+   <right>
+      <VBox alignment="BOTTOM_LEFT" prefHeight="414.0" prefWidth="103.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label>
+               <graphic>
+                  <Label text="0kr.-">
+                     <graphic>
+                        <Label text="Total:">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                     </graphic>
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+               </graphic>
+            </Label>
+         </children>
+         <BorderPane.margin>
+            <Insets left="10.0" />
+         </BorderPane.margin>
+      </VBox>
+   </right>
+   <bottom>
+      <HBox alignment="TOP_CENTER" prefHeight="43.0" prefWidth="601.0" spacing="10.0" BorderPane.alignment="TOP_RIGHT">
+         <children>
+            <Region prefHeight="43.0" prefWidth="67.0" />
+            <Button mnemonicParsing="false" prefHeight="14.0" prefWidth="78.0" text="Delete" />
+            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="49.0" text="Add" />
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="73.0" text="Checkout" />
+         </children>
+         <BorderPane.margin>
+            <Insets top="10.0" />
+         </BorderPane.margin>
+      </HBox>
+   </bottom>
+</BorderPane>

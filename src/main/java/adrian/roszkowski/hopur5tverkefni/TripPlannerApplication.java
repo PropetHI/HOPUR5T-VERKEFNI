@@ -22,7 +22,11 @@ public class TripPlannerApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(TripPlannerApplication.class.getResource("mainui-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
+        Scene scene = new Scene(fxmlLoader.load());
+
+        ViewSwitcher.setScene(scene, stage);
+        ViewSwitcher.switchTo(View.MAIN, true);
+
         stage.setResizable(false);
         stage.setTitle("5T Trip Planner");
         stage.setScene(scene);
