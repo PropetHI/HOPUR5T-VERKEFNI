@@ -50,8 +50,6 @@ public class TripPlannerController implements Initializable {
             Dialog<User> loginDialog = new LoginDialog();
             Optional<User> loginResult = loginDialog.showAndWait();
         }
-
-
     }
 
     @Override
