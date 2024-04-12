@@ -4,7 +4,6 @@ import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 
 public class AppState {
-    //public static boolean userLoggedIn;
     protected static String currentUser;
 
     public static BooleanProperty userLoggedInBoolProperty = new SimpleBooleanProperty(false);
@@ -14,6 +13,6 @@ public class AppState {
         UserDB.init();
         ServiceDB.init();
 
-        ServiceInteractor.getServiceList();
+        //ServiceInteractor.getServiceList();
     }
 }

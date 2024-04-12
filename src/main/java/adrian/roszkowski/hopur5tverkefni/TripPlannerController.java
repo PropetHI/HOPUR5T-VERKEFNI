@@ -4,10 +4,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Dialog;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
+import javafx.scene.control.*;
 
 import java.net.URL;
 import java.util.Optional;
@@ -30,6 +27,20 @@ public class TripPlannerController implements Initializable {
     private Button fxLoginButton;
 
     @FXML
+    private DatePicker fxDateFrom;
+    @FXML
+    private DatePicker fxDateTo;
+
+    @FXML
+    private TextField fxLocation;
+
+    @FXML
+    private TextField fxNumPeople;
+
+    @FXML
+    private TextField fxSearchText;
+
+    @FXML
     protected void onMyCartButtonClick() {
         fxStatusText.setText("Opening Cart");
         ViewSwitcher.switchTo(View.CART, true);
@@ -40,6 +51,14 @@ public class TripPlannerController implements Initializable {
 
     @FXML
     private ListView<String> fxServiceListView;
+
+    @FXML
+    protected void onSearchButtonClick(){
+        System.out.println("Searching...");
+            updateServiceList();
+
+        //fxServiceListView.getItems().addAll(ServiceInteractor.getServiceList("","",""));
+    }
 
     @FXML
     protected void onLoginButtonClick() {
@@ -94,12 +113,11 @@ public class TripPlannerController implements Initializable {
                 }
             }
         });
-
     }
 
     private void updateServiceList(){
         fxServiceListView.getItems().clear();
-        fxServiceListView.getItems().addAll(ServiceInteractor.getServiceList());
+        fxServiceListView.getItems().addAll(ServiceInteractor.getServiceList(fxSearchText.getText(),fxLocation.getText(),fxNumPeople.getText()));
     }
     public void updateUI(){
         //System.out.println("controller updating ui");

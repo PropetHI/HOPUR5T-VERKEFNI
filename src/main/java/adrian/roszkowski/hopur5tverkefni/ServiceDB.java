@@ -59,13 +59,24 @@ public class ServiceDB {
     public static String getDayTour(int i){
         return dTourServiceDB[i].getServiceDataString();
     }
+    public static int getDayTourAvailable(int i){
+        return dTourServiceDB[i].getAvailableSpace();
+    }
+
 
     public static String getFlight(int i){
         return flightServiceDB[i].getServiceDataString();
     }
+    public static int getFlightAvailable(int i){
+        return flightServiceDB[i].getAvailableSpace();
+    }
+
 
     public static String getHotel(int i){
         return hotelServiceDB[i].getServiceDataString();
+    }
+    public static int getHotelAvailable(int i){
+        return hotelServiceDB[i].getAvailableSpace();
     }
 
 
