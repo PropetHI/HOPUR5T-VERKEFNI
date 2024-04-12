@@ -5,6 +5,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
@@ -31,6 +32,8 @@ public class LoginDialog extends Dialog<User>{
 
     private void buildUI(){
         Pane pane = createLoginPane();
+        pane.getStylesheets().add(TripPlannerApplication.class.getResource("mainui-styles.css").toExternalForm());
+        //FXMLLoader(TripPlannerApplication.class.getResource("mainui-view.fxml"));
         getDialogPane().setContent(pane);
 
         //getDialogPane().getButtonTypes().addAll(ButtonType.OK, ButtonType.CANCEL);

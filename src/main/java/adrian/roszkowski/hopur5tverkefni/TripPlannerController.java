@@ -19,6 +19,9 @@ public class TripPlannerController implements Initializable {
 
     String noUserLoginText = "Not logged in";
     String currentSelectedListItem;
+    String[] currentSelectedListItemParts;
+
+    String listItemDelimiter = ";";
 
     @FXML
     private Label fxStatusText;
@@ -52,6 +55,16 @@ public class TripPlannerController implements Initializable {
         }
     }
 
+    @FXML
+    protected void onTestBookingButtonClick(){
+        System.out.println("Button:" + currentSelectedListItemParts[0] + currentSelectedListItemParts[2]);
+        if (ServiceInteractor.bookService(currentSelectedListItemParts[0], currentSelectedListItemParts[2]) == 0 ) {
+            //updateUI();
+            updateServiceList();
+        }
+
+    }
+
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
 
@@ -65,24 +78,29 @@ public class TripPlannerController implements Initializable {
             }
         });
 
-
-        //String[] serviceListData = {"9990;Reykjavik;Guided Bus Ride around the City of Reykjavik;10","500;Akureyri;Guided Bus Ride around the Town of Reykjavik;5","temp","test"};
-        //fxServiceListView.getItems().addAll(serviceListData);
-        fxServiceListView.getItems().addAll(ServiceInteractor.getServiceList());
-
+        //fxServiceListView.getItems().addAll(ServiceInteractor.getServiceList());
+        updateServiceList();
         fxServiceListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2){
-
-
                 currentSelectedListItem = fxServiceListView.getSelectionModel().getSelectedItem();
                 fxStatusText.setText(currentSelectedListItem);
 
+                try {
+                    currentSelectedListItemParts = fxServiceListView.getSelectionModel().getSelectedItem().split(listItemDelimiter);
+                }
+                catch (Exception e){
+                    System.out.println(e);
+                }
             }
         });
 
     }
 
+    private void updateServiceList(){
+        fxServiceListView.getItems().clear();
+        fxServiceListView.getItems().addAll(ServiceInteractor.getServiceList());
+    }
     public void updateUI(){
         //System.out.println("controller updating ui");
         currentUserLabel.setText(AppState.currentUser);
@@ -93,8 +111,6 @@ public class TripPlannerController implements Initializable {
         else {
             fxLoginButton.setText("Login");
         }
-
-
     }
 
 

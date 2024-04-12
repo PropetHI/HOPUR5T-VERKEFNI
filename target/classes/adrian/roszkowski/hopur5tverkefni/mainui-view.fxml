@@ -37,6 +37,9 @@
             <Button layoutX="917.0" layoutY="586.0" mnemonicParsing="false" text="Add to Cart" />
             <Label layoutX="20.0" layoutY="512.0" text="Search" />
             <Button layoutX="833.0" layoutY="586.0" mnemonicParsing="false" text="Details" />
+            <Button layoutX="1077.0" layoutY="442.0" mnemonicParsing="false" onAction="#onTestBookingButtonClick" text="test booking" />
+            <Label layoutX="1040.0" layoutY="218.0" text="Number of Pepople" />
+            <TextField layoutX="1040.0" layoutY="243.0" prefHeight="35.0" prefWidth="140.0" />
          </children>
       </AnchorPane>
    </children>

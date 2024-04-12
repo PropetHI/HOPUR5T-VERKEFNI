@@ -3,7 +3,7 @@ package adrian.roszkowski.hopur5tverkefni;
 //public class Service extends BookService {
 public class Service {
 
-    private int id;
+    private String id;
     private int price;
     private String aboutService;
     private String location;
@@ -16,7 +16,7 @@ public class Service {
      * @param location String of text that gives you the service location
      * @param availableSpace integer that sets the available space (one space per person) within the service
      */
-    public Service(int price, String aboutService, String location, int availableSpace, int id) {
+    public Service(int price, String aboutService, String location, int availableSpace, String id) {
         this.price = price;
         this.location = location;
         this.aboutService = aboutService;
@@ -27,9 +27,9 @@ public class Service {
 
     /**
      * Getter for the ID of the service
-     * @return integer with the servcie ID
+     * @return String with the servcie ID
      */
-    public double getId() {
+    public String getId() {
         return id;
     }
 
@@ -63,6 +63,10 @@ public class Service {
         return availableSpace;
     }
 
+    public void setAvailableSpace(int newSpace) {
+        this.availableSpace = newSpace;
+    }
+
 
     /**
      * Getter for the location of the service
@@ -70,6 +74,6 @@ public class Service {
      */
     public String getServiceDataString() {
 
-        return "ID: " + id + " , " + "Price: " + price + " , " + "Location: " + location + " , " + "Description: " + aboutService + " , " + "Availbable: " + availableSpace;
+        return "ID: ;" + id + "; " + "Price: " + price + " ; " + "Location: " + location + " ; " + "Description: " + aboutService + " ; " + "Availbable: " + availableSpace;
     }
 }

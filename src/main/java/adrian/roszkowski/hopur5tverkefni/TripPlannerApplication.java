@@ -28,7 +28,7 @@ public class TripPlannerApplication extends Application {
         ViewSwitcher.switchTo(View.MAIN, true);
 
         stage.setResizable(false);
-        stage.setTitle("5T Trip Planner");
+        stage.setTitle("5T Trip Planner - Cluster5");
         stage.setScene(scene);
         stage.show();
     }
