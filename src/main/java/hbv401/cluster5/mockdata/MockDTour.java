@@ -1,7 +1,6 @@
-package adrian.roszkowski.hopur5tverkefni;
+package hbv401.cluster5.mockdata;
 
-//public class Service extends BookService {
-public class Service {
+public class MockDTour {
 
     private String id;
     private int price;
@@ -10,13 +9,13 @@ public class Service {
     private int availableSpace;
 
     /**
-    * Constructor Service
+     * Constructor Service
      * @param price integer that tells you the cost of the service per person
      * @param aboutService String of text that has information about the service
      * @param location String of text that gives you the service location
      * @param availableSpace integer that sets the available space (one space per person) within the service
      */
-    public Service(int price, String aboutService, String location, int availableSpace, String id) {
+    public MockDTour(int price, String aboutService, String location, int availableSpace, String id) {
         this.price = price;
         this.location = location;
         this.aboutService = aboutService;

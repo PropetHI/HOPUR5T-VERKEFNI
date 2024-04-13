@@ -33,7 +33,6 @@ public class TripPlannerApplication extends Application {
         stage.show();
     }
 
-
     public static void main(String[] args) {
         AppState.init();
         launch();

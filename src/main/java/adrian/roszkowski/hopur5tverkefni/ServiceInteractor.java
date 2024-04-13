@@ -1,6 +1,11 @@
 package adrian.roszkowski.hopur5tverkefni;
 
 
+import hbv401.cluster5.mockdata.MockFlightDB;
+import hbv401.cluster5.mockdata.MockHotelDB;
+import hbv401.cluster5.mockdata.MockDTourDB;
+import hbv401.cluster5.mockdata.ServiceDB;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,21 +23,21 @@ public class ServiceInteractor {
            System.out.print(numPeople);
            int minAvailable = Integer.parseInt(numPeople);
 
-           for (int i = 0; i < ServiceDB.getDTourServiceNum(); i++) {
-               if (ServiceDB.getDayTourAvailable(i) >= minAvailable) {
-                   serviceListData.add("Day Tour; " + ServiceDB.getDayTour(i));
+           for (int i = 0; i < MockDTourDB.getDTourServiceNum(); i++) {
+               if (MockDTourDB.getDayTourAvailable(i) >= minAvailable) {
+                   serviceListData.add("Day Tour; " + MockDTourDB.getDayTour(i));
                }
            }
 
-           for (int i = 0; i < ServiceDB.getFlightServiceNum(); i++) {
-               if (ServiceDB.getFlightAvailable(i) >= minAvailable) {
-                   serviceListData.add("Flight; " + ServiceDB.getFlight(i));
+           for (int i = 0; i < MockFlightDB.getFlightServiceNum(); i++) {
+               if (MockFlightDB.getFlightAvailable(i) >= minAvailable) {
+                   serviceListData.add("Flight; " + MockFlightDB.getFlight(i));
                }
            }
 
-           for (int i = 0; i < ServiceDB.getHotelServiceNum(); i++) {
-               if (ServiceDB.getHotelAvailable(i) >= minAvailable) {
-                   serviceListData.add("Hotel; " + ServiceDB.getHotel(i));
+           for (int i = 0; i < MockHotelDB.getHotelServiceNum(); i++) {
+               if (MockHotelDB.getHotelAvailable(i) >= minAvailable) {
+                   serviceListData.add("Hotel; " + MockHotelDB.getHotel(i));
                }
            }
 
@@ -41,16 +46,16 @@ public class ServiceInteractor {
            System.out.print(location);
        }
        else {
-           for (int i = 0; i < ServiceDB.getDTourServiceNum(); i++) {
-               serviceListData.add("Day Tour; " + ServiceDB.getDayTour(i));
+           for (int i = 0; i < MockDTourDB.getDTourServiceNum(); i++) {
+               serviceListData.add("Day Tour; " + MockDTourDB.getDayTour(i));
            }
 
-           for (int i = 0; i < ServiceDB.getFlightServiceNum(); i++) {
-               serviceListData.add("Flight; " + ServiceDB.getFlight(i));
+           for (int i = 0; i < MockFlightDB.getFlightServiceNum(); i++) {
+               serviceListData.add("Flight; " + MockFlightDB.getFlight(i));
            }
 
-           for (int i = 0; i < ServiceDB.getHotelServiceNum(); i++) {
-               serviceListData.add("Hotel; " + ServiceDB.getHotel(i));
+           for (int i = 0; i < MockHotelDB.getHotelServiceNum(); i++) {
+               serviceListData.add("Hotel; " + MockHotelDB.getHotel(i));
            }
        }
 
@@ -69,13 +74,13 @@ public class ServiceInteractor {
 
 
        if(type.trim().equalsIgnoreCase(DAYTOUR)){
-           ServiceDB.dTourBookService(id);
+           MockDTourDB.dTourBookService(id);
        }
        else if(type.trim().equalsIgnoreCase(FLIGHT)){
-            ServiceDB.flightBookService(id);
+           MockFlightDB.flightBookService(id);
         }
        else if(type.trim().equalsIgnoreCase(HOTEL)){
-            ServiceDB.hotelBookService(id);
+           MockHotelDB.hotelBookService(id);
         }
        else {
            System.out.println("Error, type not valid: " + type);
