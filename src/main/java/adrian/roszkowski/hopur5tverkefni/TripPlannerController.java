@@ -3,6 +3,7 @@ package adrian.roszkowski.hopur5tverkefni;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
@@ -58,6 +59,31 @@ public class TripPlannerController implements Initializable {
             updateServiceList();
 
         //fxServiceListView.getItems().addAll(ServiceInteractor.getServiceList("","",""));
+    }
+
+    @FXML
+    protected void onDetailsButtonClick(){
+        //System.out.println("Showing Details dialog");
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("details-view.fxml"));
+            DialogPane detailsDialogPane = fxmlLoader.load();
+
+            Dialog<ButtonType> detailsDialog  = new Dialog<>();
+            detailsDialog.setDialogPane(detailsDialogPane);
+            detailsDialog.setTitle("Service Details");
+
+            DetailsController detailsController = fxmlLoader.getController();
+            detailsController.setData(currentSelectedListItemParts[5], currentSelectedListItemParts[3]);
+
+            Optional<ButtonType> clickedButton = detailsDialog.showAndWait();
+            if (clickedButton.get() == ButtonType.CLOSE){
+                System.out.println("Details Dialog Closed");
+            }
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
     }
 
     @FXML
