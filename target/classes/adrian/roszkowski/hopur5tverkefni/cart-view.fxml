@@ -61,7 +61,7 @@
          <children>
             <Region prefHeight="43.0" prefWidth="189.0" />
             <Button onAction="#onExploreMore" mnemonicParsing="false" text="Explore more" />
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="73.0" text="Checkout" />
+            <Button onAction="#onSendBooking" mnemonicParsing="false" prefHeight="25.0" prefWidth="73.0" text="Book" />
          </children>
          <BorderPane.margin>
             <Insets top="10.0" />

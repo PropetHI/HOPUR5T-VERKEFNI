@@ -10,10 +10,14 @@ public class Cart {
     /**
      *
      */
-    private void addItem() {}
+    public void addItem(Service service) {
+        services.remove(service);
+    }
 
     /**
      *
      */
-    private void removeItem() {}
+    public void removeItem(Service service) {
+        services.add(service);
+    }
 }
