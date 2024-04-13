@@ -9,6 +9,7 @@ package hbv401.cluster5.mockdata;
  */
 public class Service {
 
+
     private String id;
     private int price;
     private String aboutService;
