@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="501.0" prefWidth="657.0" stylesheets="@cart-styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="501.0" prefWidth="657.0" stylesheets="@cart-styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adrian.roszkowski.hopur5tverkefni.CartController">
    <center>
-      <ListView prefHeight="383.0" prefWidth="383.0" BorderPane.alignment="CENTER" />
+      <ListView fx:id="fxServicesInCart" prefHeight="383.0" prefWidth="383.0" BorderPane.alignment="CENTER" />
    </center>
    <top>
       <HBox alignment="CENTER" prefHeight="68.0" prefWidth="601.0" BorderPane.alignment="CENTER">
@@ -31,8 +31,8 @@
    <right>
       <VBox alignment="BOTTOM_LEFT" prefHeight="414.0" prefWidth="103.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="49.0" text="Add" />
-            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="66.0" text="Delete" />
+            <Button onAction="#onAdd" mnemonicParsing="false" prefHeight="26.0" prefWidth="49.0" text="Add" />
+            <Button onAction="#onRemove" mnemonicParsing="false" prefHeight="26.0" prefWidth="66.0" text="Remove" />
             <Region prefHeight="275.0" prefWidth="103.0" />
             <Label>
                <graphic>
@@ -60,7 +60,7 @@
       <HBox alignment="TOP_CENTER" prefHeight="43.0" prefWidth="601.0" spacing="10.0" BorderPane.alignment="TOP_RIGHT">
          <children>
             <Region prefHeight="43.0" prefWidth="189.0" />
-            <Button mnemonicParsing="false" text="Explore more" />
+            <Button onAction="#onExploreMore" mnemonicParsing="false" text="Explore more" />
             <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="73.0" text="Checkout" />
          </children>
          <BorderPane.margin>
