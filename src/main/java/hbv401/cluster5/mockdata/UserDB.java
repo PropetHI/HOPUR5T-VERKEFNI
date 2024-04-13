@@ -1,4 +1,7 @@
-package adrian.roszkowski.hopur5tverkefni;
+
+package hbv401.cluster5.mockdata;
+
+import adrian.roszkowski.hopur5tverkefni.User;
 
 /**
  * MockObject class to represent User DB

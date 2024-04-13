@@ -1,18 +1,12 @@
 package adrian.roszkowski.hopur5tverkefni;
 
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.fxml.FXMLLoader;
+import hbv401.cluster5.mockdata.UserDB;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.util.Callback;
 
 //public class LoginDialog extends Dialog<User>{
 public class LoginDialog extends Dialog<User>{

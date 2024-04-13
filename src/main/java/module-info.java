@@ -5,4 +5,6 @@ module adrian.roszkowski.hopur5tverkefni {
 
     opens adrian.roszkowski.hopur5tverkefni to javafx.fxml;
     exports adrian.roszkowski.hopur5tverkefni;
+    exports hbv401.cluster5.mockdata;
+    opens hbv401.cluster5.mockdata to javafx.fxml;
 }
