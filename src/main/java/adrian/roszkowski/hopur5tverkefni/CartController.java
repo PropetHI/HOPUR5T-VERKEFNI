@@ -20,14 +20,19 @@ public class CartController implements Initializable {
     private TripPlannerController tripPlannerController;
 
     private Cart cart = new Cart();
+    ObservableList<String> services;
 
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        //fxServicesInCart.getItems().addAll(ServiceInteractor.getServiceList());
+        services = cart.getServices();
 
-        //ObservableList<String> observableList = FXCollections.observableArrayList(ServiceInteractor.getServiceList());
-        //fxServicesInCart.setItems(observableList);
+        if (services != null) {
+            fxServicesInCart.setItems(cart.getServices());
+
+            ObservableList<String> observableList = FXCollections.observableArrayList(cart.getServices());
+            fxServicesInCart.setItems(observableList);
+        }
     }
 
     @FXML
@@ -37,23 +42,46 @@ public class CartController implements Initializable {
 
     @FXML
     protected void onRemove() {
-
+        String selectedService = fxServicesInCart.getSelectionModel().getSelectedItem();
+        if (selectedService != null) {
+            cart.removeItem(selectedService);
+        }
+        else {
+            addRemoveEmptyDialog();
+        }
     }
 
     @FXML
     protected void onAdd() {
+        String selectedService = fxServicesInCart.getSelectionModel().getSelectedItem();
+        if (selectedService != null) {
+            cart.addItem(selectedService);
+        }
+        else {
+            addRemoveEmptyDialog();
+        }
     }
 
     @FXML
     private void onSendBooking(ActionEvent event) {
-        if (this.cart.services != null && !this.cart.services.isEmpty()) {
-            // Booking
+        if (cart.services != null && !cart.services.isEmpty()) {
+            for(String service : services) {
+                // skoða hvernig service þetta er
+                // bóka
+                if(true) {
+                    // Ef tókst
+                    bookingConfirmedDialog();
+                }
+                else {
+                    // Ef tókst ekki
+                    bookingErrorDialog();
+                }
+            }
         } else {
             emptyCartDialog();
         }
     }
 
-    @FXML
     private void emptyCartDialog() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
 
@@ -69,4 +97,55 @@ public class CartController implements Initializable {
 
         alert.showAndWait();
     }
+
+    private void bookingErrorDialog() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+
+        alert.setTitle("");
+        alert.setHeaderText(null);
+
+
+        alert.setContentText("We're sorry, there was an error processing your booking. Please try again " +
+                "or contact customer support for assistance.");
+
+
+        ButtonType okButton = new ButtonType("Ok", ButtonType.OK.getButtonData());
+        alert.getButtonTypes().setAll(okButton);
+
+        alert.showAndWait();
+    }
+
+    private void bookingConfirmedDialog() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+
+        alert.setTitle("Booking Confirmed");
+        alert.setHeaderText(null);
+
+
+        alert.setContentText("Your booking has been confirmed. " +
+                "\nThank you for your reservation!");
+
+
+        ButtonType okButton = new ButtonType("Ok", ButtonType.OK.getButtonData());
+        alert.getButtonTypes().setAll(okButton);
+
+        alert.showAndWait();
+    }
+
+    private void addRemoveEmptyDialog() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+
+        alert.setTitle("");
+        alert.setHeaderText(null);
+
+
+        alert.setContentText("Your cart is currently empty");
+
+
+        ButtonType okButton = new ButtonType("Ok", ButtonType.OK.getButtonData());
+        alert.getButtonTypes().setAll(okButton);
+
+        alert.showAndWait();
+    }
+
 }

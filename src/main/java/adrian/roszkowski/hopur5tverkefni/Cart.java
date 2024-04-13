@@ -1,25 +1,35 @@
 package adrian.roszkowski.hopur5tverkefni;
 
-import hbv401.cluster5.mockdata.Service;
+//import hbv401.cluster5.mockdata.Service;
 
-import java.util.ArrayList;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class Cart {
 
     // Service list
-    ArrayList<Service> services;
+    ObservableList<String> services;
+
+    public Cart() {
+        services = FXCollections.observableArrayList();
+    }
 
     /**
      *
      */
-    public void addItem(Service service) {
+    public void addItem(String service) {
         services.remove(service);
     }
 
     /**
      *
      */
-    public void removeItem(Service service) {
+    public void removeItem(String service) {
         services.add(service);
+    }
+
+
+    public ObservableList<String> getServices() {
+        return services;
     }
 }
