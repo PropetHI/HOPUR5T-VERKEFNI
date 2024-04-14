@@ -5,8 +5,6 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.ListView;
 
 
@@ -46,9 +44,8 @@ public class CartController implements Initializable {
         String selectedService = fxServicesInCart.getSelectionModel().getSelectedItem();
         if (selectedService != null) {
             cart.removeItem(selectedService);
-        }
-        else {
-            addRemoveEmptyDialog();
+        } else {
+            CartDialog.addRemoveEmptyDialog();
         }
     }
 
@@ -57,95 +54,26 @@ public class CartController implements Initializable {
         String selectedService = fxServicesInCart.getSelectionModel().getSelectedItem();
         if (selectedService != null) {
             cart.addItem(selectedService);
-        }
-        else {
-            addRemoveEmptyDialog();
+        } else {
+            CartDialog.addRemoveEmptyDialog();
         }
     }
 
     @FXML
     private void onSendBooking(ActionEvent event) {
         if (cart.services != null && !cart.services.isEmpty()) {
-            for(String service : services) {
-                if(cart.booking()) {
+            for (String service : services) {
+                if (cart.booking()) {
                     // Ef tókst að bóka
-                    bookingConfirmedDialog();
+                    CartDialog.bookingConfirmedDialog();
                     cart.emptyCart();
-                }
-                else {
+                } else {
                     // Ef tókst ekki
-                    bookingErrorDialog();
+                    CartDialog.bookingErrorDialog();
                 }
             }
         } else {
-            emptyCartDialog();
+            CartDialog.emptyCartDialog();
         }
     }
-
-    private void emptyCartDialog() {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-
-        alert.setTitle("");
-        alert.setHeaderText(null);
-
-
-        alert.setContentText("Your cart is currently empty. Please add items to your cart before proceeding with the booking.");
-
-
-        ButtonType okButton = new ButtonType("Ok", ButtonType.OK.getButtonData());
-        alert.getButtonTypes().setAll(okButton);
-
-        alert.showAndWait();
-    }
-
-    private void bookingErrorDialog() {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-
-        alert.setTitle("");
-        alert.setHeaderText(null);
-
-
-        alert.setContentText("We're sorry, there was an error processing your booking. Please try again " +
-                "or contact customer support for assistance.");
-
-
-        ButtonType okButton = new ButtonType("Ok", ButtonType.OK.getButtonData());
-        alert.getButtonTypes().setAll(okButton);
-
-        alert.showAndWait();
-    }
-
-    private void bookingConfirmedDialog() {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-
-        alert.setTitle("Booking Confirmed");
-        alert.setHeaderText(null);
-
-
-        alert.setContentText("Your booking has been confirmed. " +
-                "\nThank you for your reservation!");
-
-
-        ButtonType okButton = new ButtonType("Ok", ButtonType.OK.getButtonData());
-        alert.getButtonTypes().setAll(okButton);
-
-        alert.showAndWait();
-    }
-
-    private void addRemoveEmptyDialog() {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-
-        alert.setTitle("");
-        alert.setHeaderText(null);
-
-
-        alert.setContentText("Your cart is currently empty");
-
-
-        ButtonType okButton = new ButtonType("Ok", ButtonType.OK.getButtonData());
-        alert.getButtonTypes().setAll(okButton);
-
-        alert.showAndWait();
-    }
-
 }
