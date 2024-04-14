@@ -62,7 +62,7 @@ public class CartDialog {
         alert.setHeaderText(null);
 
 
-        alert.setContentText("Your cart is currently empty");
+        alert.setContentText("Please choose the service you would like to add or remove");
 
 
         ButtonType okButton = new ButtonType("Ok", ButtonType.OK.getButtonData());

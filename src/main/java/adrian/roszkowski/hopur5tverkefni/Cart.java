@@ -12,7 +12,7 @@ public class Cart {
      * Constructor for the Cart
      */
     public Cart() {
-        services = FXCollections.observableArrayList();
+        this.services = FXCollections.observableArrayList();
 
 
     }
@@ -21,14 +21,14 @@ public class Cart {
      * Add a single item to the cart
      */
     public void addItem(String service) {
-        services.remove(service);
+        services.add(service);
     }
 
     /**
      * Remove a single item from the cart
      */
     public void removeItem(String service) {
-        services.add(service);
+        services.remove(service);
     }
 
     /**
@@ -40,7 +40,20 @@ public class Cart {
 
 
     public boolean booking() {
-
+        if (services != null) {
+            // TO-DO klára bókunaraðferð
+            if (true) {
+                // Ef tókst að bóka
+                CartDialog.bookingConfirmedDialog();
+                emptyCart();
+            } else {
+                // Ef tókst ekki
+                CartDialog.bookingErrorDialog();
+            }
+        } else {
+           CartDialog.emptyCartDialog();
+           return false;
+        }
         return true;
     }
 

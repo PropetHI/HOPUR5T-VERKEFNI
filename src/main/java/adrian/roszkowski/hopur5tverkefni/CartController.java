@@ -1,7 +1,6 @@
 package adrian.roszkowski.hopur5tverkefni;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,23 +14,21 @@ public class CartController implements Initializable {
 
     @FXML
     private ListView<String> fxServicesInCart;
-    @FXML
-    private TripPlannerController tripPlannerController;
 
-    private Cart cart = new Cart();
-    ObservableList<String> services;
+    private Cart cart;
 
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        services = cart.getServices();
+        cart = new Cart();
+        fxServicesInCart.setItems(cart.getServices());
 
-        if (services != null) {
-            fxServicesInCart.setItems(cart.getServices());
+        updateServiceList();
+    }
 
-            ObservableList<String> observableList = FXCollections.observableArrayList(cart.getServices());
-            fxServicesInCart.setItems(observableList);
-        }
+    private void updateServiceList(){
+        fxServicesInCart.getItems().clear();
+        fxServicesInCart.getItems().addAll(ServiceInteractor.getServiceList("", "", ""));
     }
 
     @FXML
@@ -61,19 +58,6 @@ public class CartController implements Initializable {
 
     @FXML
     private void onSendBooking(ActionEvent event) {
-        if (cart.services != null && !cart.services.isEmpty()) {
-            for (String service : services) {
-                if (cart.booking()) {
-                    // Ef tókst að bóka
-                    CartDialog.bookingConfirmedDialog();
-                    cart.emptyCart();
-                } else {
-                    // Ef tókst ekki
-                    CartDialog.bookingErrorDialog();
-                }
-            }
-        } else {
-            CartDialog.emptyCartDialog();
-        }
+        cart.booking();
     }
 }
