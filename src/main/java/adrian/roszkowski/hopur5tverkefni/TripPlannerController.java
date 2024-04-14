@@ -74,7 +74,7 @@ public class TripPlannerController implements Initializable {
             detailsDialog.setTitle("Service Details");
 
             DetailsController detailsController = fxmlLoader.getController();
-            detailsController.setData(currentSelectedListItemParts[5], currentSelectedListItemParts[3]);
+            detailsController.setData(currentSelectedListItemParts[0], currentSelectedListItemParts[4],currentSelectedListItemParts[5], currentSelectedListItemParts[3],currentSelectedListItemParts[6]);
 
             Optional<ButtonType> clickedButton = detailsDialog.showAndWait();
             if (clickedButton.get() == ButtonType.CLOSE){

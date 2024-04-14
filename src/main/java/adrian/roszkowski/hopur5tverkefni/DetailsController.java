@@ -13,6 +13,13 @@ public class DetailsController implements Initializable {
     private Label fxServiceLabel;
     @FXML
     private Label fxPriceLabel;
+    @FXML
+    private Label fxTypeLabel;
+    @FXML
+    private Label fxLocationLabel;
+    @FXML
+    private Label fxAvailableLabel;
+
 
 
     @Override
@@ -20,8 +27,11 @@ public class DetailsController implements Initializable {
 
     }
 
-    protected void setData(String service, String price){
+    protected void setData(String type, String price, String service, String location, String availability){
+        fxTypeLabel.setText(type);
         fxServiceLabel.setText(service);
         fxPriceLabel.setText(price);
+        fxLocationLabel.setText(location);
+        fxAvailableLabel.setText(availability);
     }
 }
