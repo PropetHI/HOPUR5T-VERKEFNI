@@ -9,6 +9,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ListView;
 
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -66,11 +67,10 @@ public class CartController implements Initializable {
     private void onSendBooking(ActionEvent event) {
         if (cart.services != null && !cart.services.isEmpty()) {
             for(String service : services) {
-                // skoða hvernig service þetta er
-                // bóka
-                if(true) {
-                    // Ef tókst
+                if(cart.booking()) {
+                    // Ef tókst að bóka
                     bookingConfirmedDialog();
+                    cart.emptyCart();
                 }
                 else {
                     // Ef tókst ekki

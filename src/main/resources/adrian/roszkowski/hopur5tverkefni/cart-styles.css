@@ -1,8 +1,31 @@
-.button {
-    -fx-background-color: #007bff;
+
+.root {
+    -fx-background-color: #3273c3;
+}
+
+.label{
     -fx-text-fill: white;
 }
 
+.button {
+    -fx-background-color:  #e19108;
+    -fx-text-fill: white;
+    -fx-background-radius: 5px;
+}
+
 .button:hover {
-    -fx-background-color: #0056b3;
+    -fx-background-color: #40b0df;
+    -fx-background-radius: 5px;
+    -fx-text-fill: #2d659e;
+}
+
+.header-background {
+   -fx-background-color: #f79b23;
+}
+
+.header-text {
+    -fx-text-fill: #2d659e;
+    -fx-font-size: 35px;
+    -fx-font-family: "Avenir Next Bold";
+    -fx-font-weight: bold;
 }
