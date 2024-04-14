@@ -20,7 +20,7 @@ public class ServiceInteractor {
 
        //if (textSearch.isBlank() && location.isBlank() && numPeople.isBlank()) {
        if (!numPeople.isBlank()) {
-           System.out.print(numPeople);
+           //System.out.print(numPeople);
            int minAvailable = Integer.parseInt(numPeople);
 
            for (int i = 0; i < MockDTourDB.getDTourServiceNum(); i++) {
@@ -43,7 +43,44 @@ public class ServiceInteractor {
 
        }
        else if (!location.isBlank()){
-           System.out.print(location);
+           //System.out.print(location);
+           for (int i = 0; i < MockDTourDB.getDTourServiceNum(); i++) {
+               if (location.trim().equalsIgnoreCase(MockDTourDB.getDTourLocation(i))) {
+                   serviceListData.add("Day Tour; " + MockDTourDB.getDayTour(i));
+               }
+           }
+
+           for (int i = 0; i < MockFlightDB.getFlightServiceNum(); i++) {
+               if (location.trim().equalsIgnoreCase(MockFlightDB.getFlightLocation(i))) {
+                   serviceListData.add("Flight; " + MockFlightDB.getFlight(i));
+               }
+           }
+
+           for (int i = 0; i < MockHotelDB.getHotelServiceNum(); i++) {
+               if (location.trim().equalsIgnoreCase(MockHotelDB.getHotelLocation(i))) {
+                   serviceListData.add("Hotel; " + MockHotelDB.getHotel(i));
+               }
+           }
+       }
+       else if (!textSearch.isBlank()){
+           //System.out.print(textSearch);
+           for (int i = 0; i < MockDTourDB.getDTourServiceNum(); i++) {
+               if (MockDTourDB.getDayTour(i).toLowerCase().contains(textSearch.trim().toLowerCase())) {
+                   serviceListData.add("Day Tour; " + MockDTourDB.getDayTour(i));
+               }
+           }
+
+           for (int i = 0; i < MockFlightDB.getFlightServiceNum(); i++) {
+               if (MockFlightDB.getFlight(i).toLowerCase().contains(textSearch.trim().toLowerCase())) {
+                   serviceListData.add("Flight; " + MockFlightDB.getFlight(i));
+               }
+           }
+
+           for (int i = 0; i < MockHotelDB.getHotelServiceNum(); i++) {
+               if (MockHotelDB.getHotel(i).toLowerCase().contains(textSearch.trim().toLowerCase())) {
+                   serviceListData.add("Hotel; " + MockHotelDB.getHotel(i));
+               }
+           }
        }
        else {
            for (int i = 0; i < MockDTourDB.getDTourServiceNum(); i++) {
@@ -90,16 +127,6 @@ public class ServiceInteractor {
        return status;
     }
 
-    /*
-    public static List<String> queryServiceProviders(){
-        int status = 0;
-        serviceListData.clear();
-        serviceListData.add("TEST;asdf;asdf;ASdfAS;asdf;Asdf;asdf");
-
-        return serviceListData;
-     }
-
-     */
 
 
 

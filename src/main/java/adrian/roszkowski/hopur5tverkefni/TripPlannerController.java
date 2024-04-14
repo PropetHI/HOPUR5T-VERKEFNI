@@ -55,7 +55,7 @@ public class TripPlannerController implements Initializable {
 
     @FXML
     protected void onSearchButtonClick(){
-        System.out.println("Searching...");
+        //System.out.println("Searching...");
             updateServiceList();
 
         //fxServiceListView.getItems().addAll(ServiceInteractor.getServiceList("","",""));

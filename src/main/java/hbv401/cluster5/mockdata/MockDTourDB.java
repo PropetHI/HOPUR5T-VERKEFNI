@@ -21,6 +21,8 @@ public class MockDTourDB {
 
     public static int getDTourServiceNum() {return mockDTourDB.length;}
 
+    public static String getDTourLocation(int i) {return mockDTourDB[i].getLocation();}
+
     public static String getDayTour(int i){
         return mockDTourDB[i].getServiceDataString();
     }

@@ -28,7 +28,7 @@ public class MockHotelDB {
 
     public static int getHotelServiceNum() {return mockHotelDB.length;}
 
-
+    public static String getHotelLocation(int i) {return mockHotelDB[i].getLocation();}
 
     public static String getHotel(int i){
         return mockHotelDB[i].getServiceDataString();

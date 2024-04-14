@@ -30,7 +30,7 @@ public class MockFlightDB {
 
     public static int getFlightServiceNum() {return mockFlightDB.length;}
 
-
+    public static String getFlightLocation(int i) {return mockFlightDB[i].getLocation();}
 
     public static String getFlight(int i){
         return  mockFlightDB[i].getServiceDataString();
