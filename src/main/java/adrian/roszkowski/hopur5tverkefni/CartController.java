@@ -46,6 +46,7 @@ public class CartController implements Initializable {
         String selectedService = fxServicesInCart.getSelectionModel().getSelectedItem();
         if (selectedService != null) {
             cart.removeItem(selectedService);
+            fxTotalAmount.setText(cart.totalAmount() + "kr.-");
         } else {
             CartDialog.addRemoveEmptyDialog();
         }
@@ -56,6 +57,7 @@ public class CartController implements Initializable {
         String selectedService = fxServicesInCart.getSelectionModel().getSelectedItem();
         if (selectedService != null) {
             cart.addItem(selectedService);
+            fxTotalAmount.setText(cart.totalAmount() + "kr.-");
         } else {
             CartDialog.addRemoveEmptyDialog();
         }
@@ -64,5 +66,6 @@ public class CartController implements Initializable {
     @FXML
     private void onSendBooking(ActionEvent event) {
         cart.booking();
+        fxTotalAmount.setText(cart.totalAmount() + "kr.-");
     }
 }
