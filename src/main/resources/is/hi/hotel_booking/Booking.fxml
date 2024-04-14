@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.*?>
+
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<AnchorPane prefHeight="540.0" prefWidth="640.0" style="-fx-background-color: #daf4fe;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="is.hi.hotel_booking.BookingUI">
+    <children>
+        <Button layoutX="36.0" layoutY="473.0" mnemonicParsing="false" onAction="#onBackClick" text="Back" />
+        <TextField fx:id="user_name" layoutX="119.0" layoutY="197.0" promptText="Jón Jónsson" style="-fx-background-color: #f2fbff;" />
+        <Label layoutX="63.0" layoutY="201.0" text="Name:" />
+        <Label layoutX="63.0" layoutY="260.0" text="Email: " />
+        <TextField fx:id="user_email" layoutX="119.0" layoutY="256.0" promptText="jonjonsson@gmail.com" style="-fx-background-color: #f2fbff;" />
+        <Button depthTest="DISABLE" layoutX="222.0" layoutY="330.0" mnemonicParsing="false" onAction="#bookConfirmclick" prefHeight="40.0" prefWidth="200.0" text="Confirm Booking">
+            <font>
+                <Font size="20.0" />
+            </font></Button>
+        <Label fx:id="confirmationText" alignment="CENTER" ellipsisString="" layoutX="320.0" layoutY="418.0" prefHeight="18.0" prefWidth="4.0" />
+        <DatePicker fx:id="fromDatePick" layoutX="372.0" layoutY="197.0" />
+        <Text layoutX="417.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pick dates" />
+        <Text layoutX="372.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="From" />
+        <Text layoutX="372.0" layoutY="252.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To" />
+        <DatePicker fx:id="toDatePick" layoutX="372.0" layoutY="256.0" />
+        <!--<Label fx:id="hotelNameLabel" layoutX="213.0" layoutY="52.0" style="-fx-font-size: 24;" />-->
+        <Text layoutX="213.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please fill in details">-->
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Text>
+      <Label layoutX="42.0" layoutY="149.0" text="RoomType" />
+        <Label fx:id="hotelNameLabel" layoutX="213.0" layoutY="52.0" style="-fx-font-size: 24;" />
+        <!-- Replace DropdownButton with ComboBox -->
+        <ComboBox fx:id="roomTypeComboBox" layoutX="119.0" layoutY="145.0" prefHeight="27.0" prefWidth="152.0" />
+    </children>
+</AnchorPane>

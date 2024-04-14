@@ -8,8 +8,8 @@ import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.io.IOException;
+
 
 /**
  * Main UI Class for Trip Planner Application

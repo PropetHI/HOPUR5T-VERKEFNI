@@ -22,7 +22,7 @@
             <Label fx:id="currentUserLabel" alignment="CENTER_RIGHT" layoutX="899.0" layoutY="22.0" prefHeight="17.0" prefWidth="289.0" text="USER LOGIN STATUS" textAlignment="RIGHT" />
          </children>
       </AnchorPane>
-      <AnchorPane prefHeight="647.0" prefWidth="1280.0">
+      <AnchorPane onDragDetected="#onHotelServicesButtonClick" prefHeight="647.0" prefWidth="1280.0">
          <children>
             <Label fx:id="fxStatusText" layoutX="25.0" layoutY="605.0" text="Label" />
             <ListView fx:id="fxServiceListView" layoutX="14.0" layoutY="14.0" prefHeight="501.0" prefWidth="1009.0" />
@@ -45,6 +45,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Button>
+            <Button layoutX="1084.0" layoutY="444.0" mnemonicParsing="false" onAction="#onHotelServicesButtonClick" text="Hotel Services" />
          </children>
       </AnchorPane>
    </children>

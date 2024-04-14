@@ -1,15 +1,25 @@
 package adrian.roszkowski.hopur5tverkefni;
 
+import is.hi.hotel_booking.database.DatabaseManager;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.Optional;
 import java.util.ResourceBundle;
+
+import is.hi.hotel_booking.HotelApplication;
 
 import java.util.Optional;
 
@@ -59,6 +69,30 @@ public class TripPlannerController implements Initializable {
             updateServiceList();
 
         //fxServiceListView.getItems().addAll(ServiceInteractor.getServiceList("","",""));
+    }
+
+    @FXML
+    protected void onHotelServicesButtonClick() throws IOException, SQLException {
+        System.out.println("Accessing Hotel Services ...");
+
+        Stage hotelDialogStage = new Stage();
+        hotelDialogStage.initModality(Modality.APPLICATION_MODAL);
+        hotelDialogStage.setTitle("Hotel Services");
+
+        HotelApplication hotelApp = new HotelApplication();
+        FXMLLoader loader = new FXMLLoader(HotelApplication.class.getResource("HotelSearch.fxml"));
+        Parent hotelRoot = loader.load();
+
+        Scene hotelScene = new Scene(hotelRoot, 400,300);
+
+        hotelDialogStage.setScene(hotelScene);
+
+        is.hi.hotel_booking.HotelUI hotelUIController = loader.getController();
+        Connection connection = DatabaseManager.getConnection();
+        hotelUIController.initialize(connection);
+
+        hotelDialogStage.showAndWait();
+        
     }
 
     @FXML
