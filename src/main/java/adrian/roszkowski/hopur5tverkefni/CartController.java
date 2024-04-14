@@ -4,6 +4,7 @@ package adrian.roszkowski.hopur5tverkefni;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 
 
@@ -14,6 +15,8 @@ public class CartController implements Initializable {
 
     @FXML
     private ListView<String> fxServicesInCart;
+    @FXML
+    private Label fxTotalAmount;
 
     private Cart cart;
 
@@ -24,6 +27,8 @@ public class CartController implements Initializable {
         fxServicesInCart.setItems(cart.getServices());
 
         updateServiceList();
+
+        fxTotalAmount.setText(cart.totalAmount() + "kr.-");
     }
 
     private void updateServiceList(){

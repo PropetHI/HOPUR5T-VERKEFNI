@@ -64,4 +64,25 @@ public class Cart {
     public ObservableList<String> getServices() {
         return services;
     }
+
+    /**
+     *
+     * @return String value of all of the items in the cart
+     */
+    public String totalAmount() {
+        int total = 0;
+        for (String service : services) {
+            String[] parts = service.split(";");
+            if (parts.length >= 4) {
+                String amountString = parts[3].trim();
+                // Remove "Price"
+                if (amountString.startsWith("Price:")) {
+                    amountString = amountString.substring("Price:".length()).trim();
+                }
+                int amount = Integer.parseInt(amountString);
+                total += amount;
+            }
+        }
+        return String.valueOf(total);
+    }
 }

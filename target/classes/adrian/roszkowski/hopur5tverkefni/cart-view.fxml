@@ -10,15 +10,15 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="594.0" prefWidth="664.0" stylesheets="@cart-styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adrian.roszkowski.hopur5tverkefni.CartController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="521.0" prefWidth="754.0" stylesheets="@cart-styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adrian.roszkowski.hopur5tverkefni.CartController">
    <center>
-      <ListView fx:id="fxServicesInCart" styleClass="cart-label" prefHeight="408.0" prefWidth="521.0" BorderPane.alignment="CENTER" />
+      <ListView fx:id="fxServicesInCart" prefHeight="408.0" prefWidth="521.0" styleClass="cart-label" BorderPane.alignment="CENTER" />
    </center>
    <left>
       <Region prefHeight="428.0" prefWidth="41.0" BorderPane.alignment="CENTER" />
    </left>
    <right>
-      <VBox alignment="BOTTOM_LEFT" prefHeight="405.0" prefWidth="114.0" spacing="10.0" BorderPane.alignment="CENTER">
+      <VBox alignment="BOTTOM_LEFT" prefHeight="332.0" prefWidth="170.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
             <Button mnemonicParsing="false" onAction="#onAdd" prefHeight="45.0" prefWidth="75.0" text="+">
                <font>
@@ -31,9 +31,9 @@
             <Region prefHeight="301.0" prefWidth="116.0" />
             <Label>
                <graphic>
-                  <Label text="0" textFill="WHITE">
+                  <Label fx:id="fxTotalAmount" text="0" textFill="WHITE">
                      <graphic>
-                        <Label fx:id="fxTotalAmount" text="Total:">
+                        <Label text="Total:">
                            <font>
                               <Font size="17.0" />
                            </font>
@@ -52,9 +52,9 @@
       </VBox>
    </right>
    <bottom>
-      <HBox alignment="TOP_CENTER" prefHeight="51.0" prefWidth="664.0" spacing="10.0" BorderPane.alignment="TOP_RIGHT">
+      <HBox alignment="TOP_CENTER" prefHeight="51.0" prefWidth="664.0" spacing="20.0" BorderPane.alignment="TOP_RIGHT">
          <children>
-            <Region prefHeight="51.0" prefWidth="181.0" />
+            <Region prefHeight="51.0" prefWidth="140.0" />
             <Button mnemonicParsing="false" onAction="#onExploreMore" prefHeight="35.0" prefWidth="125.0" text="Explore more">
                <font>
                   <Font size="18.0" />
@@ -72,7 +72,7 @@
    <top>
       <VBox alignment="CENTER" prefHeight="83.0" prefWidth="743.0" styleClass="header-background">
          <children>
-            <Label text="My cart" styleClass="header-text"/>
+            <Label styleClass="header-text" text="My cart" />
          </children>
          <BorderPane.margin>
             <Insets bottom="20.0" left="40.0" right="40.0" top="20.0" />
