@@ -92,7 +92,7 @@ public class TripPlannerController implements Initializable {
         hotelUIController.initialize(connection);
 
         hotelDialogStage.showAndWait();
-        
+
     }
 
     @FXML
@@ -176,8 +176,14 @@ public class TripPlannerController implements Initializable {
     }
 
     private void updateServiceList(){
-        fxServiceListView.getItems().clear();
-        fxServiceListView.getItems().addAll(ServiceInteractor.getServiceList(fxSearchText.getText(),fxLocation.getText(),fxNumPeople.getText()));
+
+        try {
+            fxServiceListView.getItems().clear();
+            fxServiceListView.getItems().addAll(ServiceInteractor.getServiceList(fxSearchText.getText(),fxLocation.getText(),fxNumPeople.getText()));
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
     }
     public void updateUI(){
         //System.out.println("controller updating ui");
