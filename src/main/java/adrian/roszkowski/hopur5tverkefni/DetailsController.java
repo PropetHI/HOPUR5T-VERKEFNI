@@ -1,5 +1,6 @@
 package adrian.roszkowski.hopur5tverkefni;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -21,7 +22,6 @@ public class DetailsController implements Initializable {
     private Label fxAvailableLabel;
 
 
-
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
 
@@ -33,5 +33,8 @@ public class DetailsController implements Initializable {
         fxPriceLabel.setText(price);
         fxLocationLabel.setText(location);
         fxAvailableLabel.setText(availability);
+    }
+
+    public void onAddToCart(ActionEvent actionEvent) {
     }
 }

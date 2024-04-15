@@ -2,6 +2,7 @@ package adrian.roszkowski.hopur5tverkefni;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -157,5 +158,28 @@ public class TripPlannerController implements Initializable {
         }
     }
 
+
+    public void onAddToCartButtonClick(ActionEvent actionEvent) {
+
+        String selectedService = fxServiceListView.getSelectionModel().getSelectedItem();
+
+        if (selectedService != null) {
+
+            if (ServiceInteractor.bookService(currentSelectedListItemParts[0], currentSelectedListItemParts[2]) == 0 )
+            {
+                currentSelectedListItem = fxServiceListView.getSelectionModel().getSelectedItem();
+                updateServiceList();
+                CartController cartController = (CartController) ViewSwitcher.lookup(View.CART);
+                cartController.updateServiceList();
+            }
+
+
+
+        }
+        else {
+
+            System.out.println("No service selected");
+        }
+    }
 
 }

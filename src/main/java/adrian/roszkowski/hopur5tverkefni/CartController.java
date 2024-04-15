@@ -21,6 +21,8 @@ public class CartController implements Initializable {
     private Cart cart;
 
 
+
+
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         cart = new Cart();
@@ -31,7 +33,7 @@ public class CartController implements Initializable {
         fxTotalAmount.setText(cart.totalAmount() + "kr.-");
     }
 
-    private void updateServiceList(){
+    void updateServiceList(){
         fxServicesInCart.getItems().clear();
         fxServicesInCart.getItems().addAll(ServiceInteractor.getServiceList("", "", ""));
     }

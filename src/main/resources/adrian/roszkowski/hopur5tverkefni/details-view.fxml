@@ -43,7 +43,7 @@
     <content>
       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0">
          <children>
-            <Button layoutX="357.0" layoutY="-1.0" mnemonicParsing="false" text="Add to Cart" />
+            <Button layoutX="357.0" layoutY="-1.0" mnemonicParsing="false" text="Add to Cart" onAction="#onAddToCart" />
          </children></AnchorPane>
     </content>
     <expandableContent>
